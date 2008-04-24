@@ -1,18 +1,20 @@
 %define version 4.0.0 
 %define release %mkrel 0.%revision.1
 %define revision 744030
-%define oname   kphotoalbum
 
-Name:		kde4-kphotoalbum
+Name:		kphotoalbum
 Version:	%{version}
 Release:	%{release}
 License:	GPLv2+
 Url:	        http://www.kphotoalbum.org
 Group:		Graphical desktop/KDE
-Source0:	http://jaist.dl.sourceforge.net/sourceforge/kphotoalbum/%{oname}-%version.%revision.tar.bz2
+Source0:	http://jaist.dl.sourceforge.net/sourceforge/kphotoalbum/%{name}-%version.%revision.tar.bz2
 Summary:        K Image Database
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  kdelibs4-devel
+Obsoletes:      kde4-%name <= 4.0.0
+Provides:       kde4-%name = %version
+
 
 %description
 Image database for KDE4
@@ -68,7 +70,7 @@ Image database for KDE4
 #------------------------------------------------
 
 %prep
-%setup -q -n %oname-%version
+%setup -q -n %name-%version
 
 %build
 %cmake_kde4 
