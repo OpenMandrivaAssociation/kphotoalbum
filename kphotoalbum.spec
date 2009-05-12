@@ -1,6 +1,5 @@
-%define version 4.0.0 
-%define release %mkrel 0.%revision.3
-%define revision 858397
+%define version 4.0.0
+%define release %mkrel 1
 
 Name:		kphotoalbum
 Version:	%{version}
@@ -8,8 +7,7 @@ Release:	%{release}
 License:	GPLv2+
 Url:	        http://www.kphotoalbum.org
 Group:		Graphical desktop/KDE
-Source0:	http://jaist.dl.sourceforge.net/sourceforge/kphotoalbum/%{name}-r%{revision}.tar.bz2
-Patch0:		kphotoalbum-4.0-fix-lib-build.patch
+Source:		http://kphotoalbum.org/data/download/%name-4.0.tar.bz2
 Summary:        K Image Database
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  kdegraphics4-devel
@@ -17,7 +15,7 @@ Obsoletes:      kde4-%name <= 4.0.0
 Provides:       kde4-%name = %version
 
 %description
-Image database for KDE4
+Image database for KDE4.
 
 %if %mdkversion < 200900
 %post
@@ -31,7 +29,7 @@ Image database for KDE4
 %clean_icon_cache hicolor
 %endif
 
-%files
+%files -f %name.lang
 %defattr(-,root,root)
 %{_kde_bindir}/kphotoalbum
 %{_kde_datadir}/applications/kde4/*.desktop
@@ -42,8 +40,7 @@ Image database for KDE4
 #------------------------------------------------
 
 %prep
-%setup -q -n %name
-%patch0 -p1
+%setup -q -n %name-4.0
 
 %build
 %cmake_kde4 
@@ -52,6 +49,8 @@ Image database for KDE4
 %install
 rm -rf %buildroot
 %{makeinstall_std} -C build
+
+%find_lang %name
 
 %clean
 rm -rf %buildroot
