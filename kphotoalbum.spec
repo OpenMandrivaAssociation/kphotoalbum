@@ -1,4 +1,4 @@
-%define version 4.0.1
+%define version 4.0.2
 %define release %mkrel 1
 
 Name:		kphotoalbum
