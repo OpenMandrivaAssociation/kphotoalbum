@@ -1,5 +1,5 @@
-%define version 4.0.2
-%define release %mkrel 3
+%define version 4.1
+%define release %mkrel 1
 
 Name:		kphotoalbum
 Version:	%{version}
@@ -7,7 +7,7 @@ Release:	%{release}
 License:	GPLv2+
 Url:	        http://www.kphotoalbum.org
 Group:		Graphical desktop/KDE
-Source:		http://kphotoalbum.org/data/download/%name-4.0.2-kde4.3.1.tar.bz2
+Source:		http://www.kphotoalbum.org/data/download/%{name}-%{version}.tar.bz2
 Summary:        K Image Database
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  kdegraphics4-devel
@@ -28,7 +28,7 @@ Image database for KDE4.
 #------------------------------------------------
 
 %prep
-%setup -q -n %name-4.3.1
+%setup -q -n %name-%version
 
 %build
 %cmake_kde4 
