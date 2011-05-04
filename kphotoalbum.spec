@@ -1,5 +1,5 @@
 %define version 4.1.1
-%define release %mkrel 4
+%define release %mkrel 5
 
 Name:		kphotoalbum
 Version:	%{version}
