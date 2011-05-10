@@ -14,6 +14,7 @@ Patch2:		kphotoalbum-4.1.1-r1118926.patch
 Patch3:		kphotoalbum-4.1.1-r1119917.patch
 Patch4:		kphotoalbum-4.1.1-r1120248.patch
 Patch5:		kphotoalbum-4.1.1-r1118507.patch
+Patch6:		kphotoalbum-4.1.1-exiv2.patch
 Summary:        K Image Database
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  kdegraphics4-devel
@@ -53,6 +54,7 @@ popd
 pushd doc-translations/uk_kphotoalbum
 %patch5 -p5
 popd
+%patch6 -p4
 
 %build
 %cmake_kde4 
