@@ -1,30 +1,23 @@
-%define version 4.2
-%define release 1
-
 Name:		kphotoalbum
-Version:	%{version}
-Release:	%{release}
+Version:	4.2
+Release:	2
+Summary:	K Image Database
 License:	GPLv2+
-Url:	        http://www.kphotoalbum.org
 Group:		Graphical desktop/KDE
+Url:		http://www.kphotoalbum.org
 Source:		http://www.kphotoalbum.org/data/download/%{name}-%{version}.tar.bz2
-Summary:        K Image Database
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:  libkexiv2-devel
-BuildRequires:	libkdcraw-devel
-BuildRequires:  libkipi-devel
+BuildRequires:	pkgconfig(libkexiv2)
+BuildRequires:	pkgconfig(libkdcraw)
+BuildRequires:	pkgconfig(libkipi)
 BuildRequires:	marble-devel
 BuildRequires:	kdelibs4-devel
-Obsoletes:      kde4-%name <= 4.0.0
-Provides:       kde4-%name = %version
 
 %description
 Image database for KDE4.
 
-%files -f %name.lang
-%defattr(-,root,root)
+%files -f %{name}.lang
 %{_kde_bindir}/kphotoalbum
-%{_kde_datadir}/applications/kde4/*.desktop
+%{_kde_applicationsdir}/*.desktop
 %{_kde_appsdir}/kphotoalbum
 %{_kde_datadir}/config/kphotoalbumrc
 %{_kde_iconsdir}/hicolor/*/*/*
@@ -32,17 +25,14 @@ Image database for KDE4.
 #------------------------------------------------
 
 %prep
-%setup -q -n %name-%version
+%setup -q
 
 %build
-%cmake_kde4 
+%cmake_kde4
 %make
 
 %install
-rm -rf %buildroot
-%{makeinstall_std} -C build
+%makeinstall_std -C build
 
-%find_lang %name --with-html
+%find_lang %{name} --with-html
 
-%clean
-rm -rf %buildroot
