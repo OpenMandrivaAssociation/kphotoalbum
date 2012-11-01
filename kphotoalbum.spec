@@ -17,6 +17,8 @@ Image database for KDE4.
 
 %files -f %{name}.lang
 %{_kde_bindir}/kphotoalbum
+%{_kde_bindir}/kpa-backup.sh
+%{_kde_bindir}/open-raw.pl
 %{_kde_applicationsdir}/*.desktop
 %{_kde_appsdir}/kphotoalbum
 %{_kde_datadir}/config/kphotoalbumrc
