@@ -1,6 +1,6 @@
 Name:		kphotoalbum
-Version:	4.2
-Release:	2
+Version:	4.3
+Release:	1
 Summary:	K Image Database
 License:	GPLv2+
 Group:		Graphical desktop/KDE
