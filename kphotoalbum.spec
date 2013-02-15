@@ -1,5 +1,5 @@
 Name:		kphotoalbum
-Version:	4.3
+Version:	4.4
 Release:	1
 Summary:	K Image Database
 License:	GPLv2+
