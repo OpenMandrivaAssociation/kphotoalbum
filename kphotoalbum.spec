@@ -1,11 +1,11 @@
 Summary:	K Image Database
 Name:		kphotoalbum
-Version:	4.4
-Release:	3
+Version:	4.6.1
+Release:	0.1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kphotoalbum.org
-Source0:	http://www.kphotoalbum.org/data/download/%{name}-%{version}.tar.bz2
+Source0:	http://www.kphotoalbum.org/data/download/%{name}-%{version}.tar.xz
 
 BuildRequires:	kdelibs4-devel
 BuildRequires:	marble-devel
