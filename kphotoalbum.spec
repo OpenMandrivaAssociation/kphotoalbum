@@ -9,7 +9,7 @@ Source0:	http://www.kphotoalbum.org/data/download/%{name}-%{version}.tar.xz
 
 BuildRequires:	kdelibs4-devel
 BuildRequires:	marble-devel
-BuildRequires:	pkgconfig(libkexiv2)
+BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(libkdcraw)
 BuildRequires:	pkgconfig(libkipi)
 
