@@ -6,6 +6,7 @@ License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kphotoalbum.org
 Source0:	http://www.kphotoalbum.org/data/download/%{name}-%{version}.tar.xz
+Patch1:		kphotoalbum-4.7.1-clang.patch
 
 BuildRequires:	kdelibs4-devel
 BuildRequires:	marble-devel
@@ -29,6 +30,7 @@ Image database for KDE4.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 %cmake_kde4
