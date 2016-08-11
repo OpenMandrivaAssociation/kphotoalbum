@@ -1,11 +1,11 @@
 Summary:	K Image Database
 Name:		kphotoalbum
-Version:	4.7.1
-Release:	2
+Version:	4.7.2
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kphotoalbum.org
-Source0:	http://www.kphotoalbum.org/data/download/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/stable/kphotoalbum/%{version}/src/%{name}-%{version}.tar.xz
 Patch1:		kphotoalbum-4.7.1-clang.patch
 
 BuildRequires:	kdelibs4-devel
