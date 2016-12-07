@@ -1,30 +1,49 @@
 Summary:	K Image Database
 Name:		kphotoalbum
-Version:	4.7.2
+Version:	5.0.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kphotoalbum.org
-Source0:	http://download.kde.org/stable/kphotoalbum/%{version}/src/%{name}-%{version}.tar.xz
-Patch1:		kphotoalbum-4.7.1-clang.patch
-
-BuildRequires:	kdelibs4-devel
+Source0:	http://download.kde.org/stable/kphotoalbum/%{version}/%{name}-%{version}.tar.xz
 BuildRequires:	marble-devel
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(libkdcraw)
 BuildRequires:	pkgconfig(libkipi)
+BuildRequires:	cmake(KF5CoreAddons)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5KIO)
+BuildRequires:	cmake(KF5DocTools)
+BuildRequires:	cmake(KF5WidgetsAddons)
+BuildRequires:	cmake(KF5Config)
+BuildRequires:	cmake(KF5IconThemes)
+BuildRequires:	cmake(KF5Archive)
+BuildRequires:	cmake(KF5Parts)
+BuildRequires:	cmake(KF5JobWidgets)
+BuildRequires:	cmake(KF5KDcraw)
+BuildRequires:	cmake(KF5KFace)
+BuildRequires:	cmake(KF5KGeoMap)
+BuildRequires:	cmake(KF5Kipi)
+BuildRequires:	cmake(KF5KExiv2)
+BuildRequires:	cmake(Phonon4Qt5)
+BuildRequires:  pkgconfig(Qt5WebKit)
+BuildRequires:	pkgconfig(Qt5Sql)
+BuildRequires:	pkgconfig(Qt5Xml)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5Network)
 
 %description
-Image database for KDE4.
+Image database for KF5.
 
 %files -f %{name}.lang
-%{_kde_bindir}/kphotoalbum
-%{_kde_bindir}/kpa-backup.sh
-%{_kde_bindir}/open-raw.pl
-%{_kde_applicationsdir}/*.desktop
-%{_kde_appsdir}/kphotoalbum
-%{_kde_datadir}/config/kphotoalbumrc
-%{_kde_iconsdir}/hicolor/*/*/*
+%{_bindir}/kphotoalbum
+%{_bindir}/kpa-backup.sh
+%{_bindir}/open-raw.pl
+%{_datadir}/applications/*.desktop
+%{_datadir}/metainfo/org.kde.kphotoalbum.appdata.xml
+%{_datadir}/kphotoalbum
+%{_sysconfdir}/xdg/kphotoalbumrc
+%{_iconsdir}/hicolor/*/*/*
 
 #------------------------------------------------
 
@@ -33,11 +52,11 @@ Image database for KDE4.
 %apply_patches
 
 %build
-%cmake_kde4
-%make
+%cmake_kde5
+%ninja
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 
 %find_lang %{name} --with-html
 
