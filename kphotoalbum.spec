@@ -42,6 +42,7 @@ Image database for KF5.
 %{_datadir}/applications/*.desktop
 %{_datadir}/metainfo/org.kde.kphotoalbum.appdata.xml
 %{_datadir}/kphotoalbum
+%{_datadir}/kxmlgui5/kphotoalbum/kphotoalbumui.rc
 %{_sysconfdir}/xdg/kphotoalbumrc
 %{_iconsdir}/hicolor/*/*/*
 
@@ -50,10 +51,10 @@ Image database for KF5.
 %prep
 %setup -q
 %apply_patches
+%cmake_kde5
 
 %build
-%cmake_kde5
-%ninja
+%ninja -C build
 
 %install
 %ninja_install -C build
