@@ -8,8 +8,8 @@ Url:		http://www.kphotoalbum.org
 Source0:	http://download.kde.org/stable/kphotoalbum/%{version}/%{name}-%{version}.tar.xz
 BuildRequires:	marble-devel
 BuildRequires:	pkgconfig(exiv2)
-BuildRequires:	pkgconfig(libkdcraw)
-BuildRequires:	pkgconfig(libkipi)
+BuildRequires:	cmake(KF5Kipi)
+BuildRequires:	cmake(KF5KDcraw)
 BuildRequires:	cmake(KF5CoreAddons)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5KIO)
