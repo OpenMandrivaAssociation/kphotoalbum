@@ -29,6 +29,7 @@ BuildRequires:	pkgconfig(Qt5Sql)
 BuildRequires:	pkgconfig(Qt5Xml)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Network)
+BuildRequires:	pkgconfig(libjpeg)
 
 %description
 Image database for KF5.
@@ -47,8 +48,7 @@ Image database for KF5.
 #------------------------------------------------
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 %cmake_kde5
 
 %build
