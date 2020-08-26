@@ -24,6 +24,7 @@ BuildRequires:	cmake(KF5KDcraw)
 BuildRequires:	cmake(KF5KGeoMap)
 BuildRequires:	cmake(KF5Kipi)
 BuildRequires:	cmake(KF5KExiv2)
+BuildRequires:	cmake(KF5Purpose)
 BuildRequires:	cmake(Phonon4Qt5)
 BuildRequires:	pkgconfig(Qt5Sql)
 BuildRequires:	pkgconfig(Qt5Xml)
@@ -37,7 +38,10 @@ Image database for KF5.
 %files -f %{name}.lang
 %{_bindir}/kphotoalbum
 %{_bindir}/kpa-backup.sh
+%{_bindir}/kpa-thumbnailtool
 %{_bindir}/open-raw.pl
+%{_libdir}/libkpabase.so
+%{_libdir}/libkpathumbnails.so
 %{_datadir}/applications/*.desktop
 %{_datadir}/metainfo/org.kde.kphotoalbum.appdata.xml
 %{_datadir}/kphotoalbum
