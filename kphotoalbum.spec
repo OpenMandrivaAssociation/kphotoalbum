@@ -1,6 +1,6 @@
 Summary:	K Image Database
 Name:		kphotoalbum
-Version:	5.5
+Version:	5.7
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
