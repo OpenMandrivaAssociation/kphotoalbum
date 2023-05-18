@@ -1,0 +1,66 @@
+diff -up kphotoalbum-5.7.0/DB/FileInfo.cpp.omv~ kphotoalbum-5.7.0/DB/FileInfo.cpp
+--- kphotoalbum-5.7.0/DB/FileInfo.cpp.omv~	2023-05-18 06:16:11.793416733 +0200
++++ kphotoalbum-5.7.0/DB/FileInfo.cpp	2023-05-18 06:16:19.469462964 +0200
+@@ -92,7 +92,7 @@ void DB::FileInfo::parseEXIV2(const DB::
+ 
+         int orientation = 0;
+         if (datum.count() > 0)
+-            orientation = datum.toLong();
++            orientation = datum.toUint32();
+         m_angle = orientationToAngle(orientation);
+     }
+ 
+diff -up kphotoalbum-5.7.0/Exif/Database.cpp.omv~ kphotoalbum-5.7.0/Exif/Database.cpp
+--- kphotoalbum-5.7.0/Exif/Database.cpp.omv~	2023-05-18 06:16:37.862573600 +0200
++++ kphotoalbum-5.7.0/Exif/Database.cpp	2023-05-18 06:16:49.560643862 +0200
+@@ -242,7 +242,7 @@ bool Exif::Database::add(const DB::FileN
+         return false;
+ 
+     try {
+-        Exiv2::Image::AutoPtr image = Exiv2::ImageFactory::open(fileName.absolute().toLocal8Bit().data());
++        Exiv2::Image::UniquePtr image = Exiv2::ImageFactory::open(fileName.absolute().toLocal8Bit().data());
+         Q_ASSERT(image.get() != nullptr);
+         image->readMetadata();
+         Exiv2::ExifData &exifData = image->exifData();
+@@ -270,7 +270,7 @@ bool Exif::Database::add(const DB::FileN
+ 
+     for (const DB::FileName &fileName : list) {
+         try {
+-            Exiv2::Image::AutoPtr image = Exiv2::ImageFactory::open(fileName.absolute().toLocal8Bit().data());
++            Exiv2::Image::UniquePtr image = Exiv2::ImageFactory::open(fileName.absolute().toLocal8Bit().data());
+             Q_ASSERT(image.get() != nullptr);
+             image->readMetadata();
+             map << DBExifInfo(fileName, image->exifData());
+diff -up kphotoalbum-5.7.0/Exif/DatabaseElement.cpp.omv~ kphotoalbum-5.7.0/Exif/DatabaseElement.cpp
+--- kphotoalbum-5.7.0/Exif/DatabaseElement.cpp.omv~	2023-05-18 06:20:52.388087124 +0200
++++ kphotoalbum-5.7.0/Exif/DatabaseElement.cpp	2023-05-18 06:20:59.472128861 +0200
+@@ -90,7 +90,7 @@ QString Exif::IntExifElement::queryStrin
+ QVariant Exif::IntExifElement::valueFromExif(Exiv2::ExifData &data) const
+ {
+     if (data[m_tag].count() > 0)
+-        return QVariant { (int)data[m_tag].toLong() };
++        return QVariant { (int)data[m_tag].toUint32() };
+     else
+         return QVariant { (int)0 };
+ }
+diff -up kphotoalbum-5.7.0/Exif/Info.cpp.omv~ kphotoalbum-5.7.0/Exif/Info.cpp
+--- kphotoalbum-5.7.0/Exif/Info.cpp.omv~	2023-05-18 06:20:04.860806638 +0200
++++ kphotoalbum-5.7.0/Exif/Info.cpp	2023-05-18 06:20:12.858853898 +0200
+@@ -201,7 +201,7 @@ Info::Info()
+ void Exif::Info::writeInfoToFile(const DB::FileName &srcName, const QString &destName)
+ {
+     // Load Exif from source image
+-    Exiv2::Image::AutoPtr image = Exiv2::ImageFactory::open(QFile::encodeName(srcName.absolute()).data());
++    Exiv2::Image::UniquePtr image = Exiv2::ImageFactory::open(QFile::encodeName(srcName.absolute()).data());
+     image->readMetadata();
+     Exiv2::ExifData data = image->exifData();
+ 
+@@ -237,7 +237,7 @@ Exif::Metadata Exif::Info::metadata(cons
+ {
+     try {
+         Exif::Metadata result;
+-        Exiv2::Image::AutoPtr image = Exiv2::ImageFactory::open(QFile::encodeName(fileName.absolute()).data());
++        Exiv2::Image::UniquePtr image = Exiv2::ImageFactory::open(QFile::encodeName(fileName.absolute()).data());
+         Q_ASSERT(image.get() != 0);
+         image->readMetadata();
+         result.exif = image->exifData();
