@@ -44,6 +44,7 @@ Image database for KF5.
 %{_bindir}/kpa-thumbnailtool
 %{_bindir}/open-raw.pl
 %{_libdir}/libkpabase.so
+%{_libdir}/libkpaexif.so
 %{_libdir}/libkpathumbnails.so
 %{_datadir}/applications/*.desktop
 %{_datadir}/metainfo/org.kde.kphotoalbum.appdata.xml
