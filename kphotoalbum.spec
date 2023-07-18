@@ -6,7 +6,7 @@ License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kphotoalbum.org
 Source0:	http://download.kde.org/stable/kphotoalbum/%{version}/%{name}-%{version}.tar.xz
-Patch0:		kphotoalbum-5.7.0-exiv2-0.28.patch
+#Patch0:		kphotoalbum-5.7.0-exiv2-0.28.patch
 BuildRequires:	marble-devel
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	cmake(KF5Kipi)
