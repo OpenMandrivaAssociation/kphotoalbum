@@ -7,6 +7,8 @@ Group:		Graphical desktop/KDE
 Url:		http://www.kphotoalbum.org
 Source0:	http://download.kde.org/stable/kphotoalbum/%{version}/%{name}-%{version}.tar.xz
 #Patch0:		kphotoalbum-5.7.0-exiv2-0.28.patch
+
+BuildRequires:  appstream
 BuildRequires:	marble-devel
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	cmake(KF5Kipi)
@@ -30,6 +32,7 @@ BuildRequires:	pkgconfig(Qt5Sql)
 BuildRequires:	pkgconfig(Qt5Xml)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Network)
+BuildRequires:  cmake(Qt5Test)
 BuildRequires:	pkgconfig(libjpeg)
 
 %description
