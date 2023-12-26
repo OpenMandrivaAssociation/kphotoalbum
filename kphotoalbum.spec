@@ -8,6 +8,7 @@ Url:		http://www.kphotoalbum.org
 Source0:	http://download.kde.org/stable/kphotoalbum/%{version}/%{name}-%{version}.tar.xz
 
 BuildRequires:  appstream
+BuildRequires:  gettext
 BuildRequires:	marble-devel
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	cmake(KF5Kipi)
@@ -32,6 +33,7 @@ BuildRequires:	pkgconfig(Qt5Xml)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Network)
 BuildRequires:  cmake(Qt5Test)
+BuildRequires:  cmake(qtav)
 BuildRequires:	pkgconfig(libjpeg)
 
 %description
