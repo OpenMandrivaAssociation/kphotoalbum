@@ -50,7 +50,7 @@ Image database for KF5.
 %{_datadir}/applications/*.desktop
 %{_datadir}/metainfo/org.kde.kphotoalbum.appdata.xml
 %{_datadir}/kphotoalbum
-%{_datadir}/kxmlgui5/kphotoalbum
+#{_datadir}/kxmlgui5/kphotoalbum
 %{_sysconfdir}/xdg/kphotoalbumrc
 %{_iconsdir}/hicolor/*/*/*
 
