@@ -4,7 +4,7 @@ Version:	5.12.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
-Url:		http://www.kphotoalbum.org
+Url:		https://www.kphotoalbum.org
 Source0:	http://download.kde.org/stable/kphotoalbum/%{version}/%{name}-%{version}.tar.xz
 
 BuildRequires:  appstream
