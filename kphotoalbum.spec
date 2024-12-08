@@ -1,6 +1,6 @@
 Summary:	K Image Database
 Name:		kphotoalbum
-Version:	5.12.0
+Version:	6.0.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -9,35 +9,29 @@ Source0:	http://download.kde.org/stable/kphotoalbum/%{version}/%{name}-%{version
 
 BuildRequires:  appstream
 BuildRequires:  gettext
-BuildRequires:	marble-devel
+BuildRequires:	plasma6-marble-devel
 BuildRequires:	pkgconfig(exiv2)
-BuildRequires:	cmake(KF5Kipi)
-BuildRequires:	cmake(KF5KDcraw)
-BuildRequires:	cmake(KF5CoreAddons)
-BuildRequires:	cmake(KF5I18n)
-BuildRequires:	cmake(KF5KIO)
-BuildRequires:	cmake(KF5DocTools)
-BuildRequires:	cmake(KF5WidgetsAddons)
-BuildRequires:	cmake(KF5Config)
-BuildRequires:	cmake(KF5IconThemes)
-BuildRequires:	cmake(KF5Archive)
-BuildRequires:	cmake(KF5Parts)
-BuildRequires:	cmake(KF5JobWidgets)
-BuildRequires:	cmake(KF5KDcraw)
-BuildRequires:	cmake(KF5Kipi)
-BuildRequires:	cmake(KF5KExiv2)
-BuildRequires:	cmake(KF5Purpose)
-BuildRequires:	cmake(Phonon4Qt5)
-BuildRequires:	pkgconfig(Qt5Sql)
-BuildRequires:	pkgconfig(Qt5Xml)
-BuildRequires:	pkgconfig(Qt5Widgets)
-BuildRequires:	pkgconfig(Qt5Network)
-BuildRequires:  cmake(Qt5Test)
-BuildRequires:  cmake(qtav)
+BuildRequires:	cmake(KF6CoreAddons)
+BuildRequires:	cmake(KF6I18n)
+BuildRequires:	cmake(KF6KIO)
+BuildRequires:	cmake(KF6DocTools)
+BuildRequires:	cmake(KF6WidgetsAddons)
+BuildRequires:	cmake(KF6Config)
+BuildRequires:	cmake(KF6IconThemes)
+BuildRequires:	cmake(KF6Archive)
+BuildRequires:	cmake(KF6Parts)
+BuildRequires:	cmake(KF6JobWidgets)
+BuildRequires:	cmake(KF6Purpose)
+BuildRequires:	cmake(Phonon4Qt6)
+BuildRequires:	pkgconfig(Qt6Sql)
+BuildRequires:	pkgconfig(Qt6Xml)
+BuildRequires:	pkgconfig(Qt6Widgets)
+BuildRequires:	pkgconfig(Qt6Network)
+BuildRequires:  cmake(Qt6Test)
 BuildRequires:	pkgconfig(libjpeg)
 
 %description
-Image database for KF5.
+Image database for KF6.
 
 %files -f %{name}.lang
 %{_bindir}/kphotoalbum
